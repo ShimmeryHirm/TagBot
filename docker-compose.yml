@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  bot:
+    container_name: tagbot
+
+    build:
+      context: ./TagBot
+      dockerfile: Dockerfile
+
+    stop_signal: SIGINT
+
+    restart: "on-failure"
+
+    entrypoint: [ "python3", "-u", "main.py" ]
